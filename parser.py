@@ -21,8 +21,8 @@ def parseInput(s):
     # Delete all occurances of \n in array
     noNewlineArr = [x.replace("\n", "") for x in fullArray]
 
-    # Delete lasdt val & first value (not option)
-    noNewlineArr.pop()
+    # Delete first value (not option)
+
     noNewlineArr = noNewlineArr[1:]
 
     # Combine delimiters with appropriate options + descriptions
@@ -51,8 +51,6 @@ def parseInput(s):
         if "," not in val[:4]:
             separatedArr.append(val)
 
-    # printArray(separatedArr)
-
     # Split on new word sunless it start with <
     finalArr = []
     for item in separatedArr:
@@ -70,14 +68,12 @@ def parseInput(s):
         if len(lilArray) > 2:
             lilArray[2] = lilArray[2][1:-1]
 
-        print(lilArray)
         finalArr.append(lilArray)
 
     # Combines short and long options
     superFinalArr = []
     i = 0
 
-    # TODO: Missing a few options for some reason here, troubleshoot
     while i < len(finalArr) - 1:
         # if descriptions are the same, append to just one item to finalArr with name being an array
         # else just append
