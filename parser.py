@@ -87,9 +87,7 @@ def parseInput(s):
             superFinalArr.append(finalArr[i])
             i += 1
     superFinalArr.append(finalArr[-1])
-    printArray(superFinalArr)
-
-    return finalArr
+    return superFinalArr
 
 
 def completionSpecsJSON(l):
@@ -104,16 +102,13 @@ def completionSpecsJSON(l):
         if len(item) > 3:
             dict["args"] = [{
                 "name": item[2],
-                "description": item[2]
             },
                 {
                 "name": item[3],
-                "description": item[3]
             }, ]
         elif len(item) > 2:
             dict["args"] = {
                 "name": item[2],
-                "description": item[2]
             }
         options.append(dict)
 
@@ -123,8 +118,7 @@ def completionSpecsJSON(l):
 
 
 # TODO: Manually use insertValue for anything that has an = and also look for all / and | to make them multiple args or something in the final spec
-parseInput(s)
-# completionSpecsJSON(formatArray(parseInput(s)))
+completionSpecsJSON(parseInput(s))
 
 '''
 Should look like:
