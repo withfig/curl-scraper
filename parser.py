@@ -112,6 +112,10 @@ def completionSpecsJSON(l):
 completionSpecsJSON(parseInput(s))
 
 '''
+What I did after I copied:
+- Manually search for | and / and add suggestions arrays when necceasary
+- Search for "dir" and "file/filename" to add templates for folders and filepaths
+
 Should look like:
     options: [
     {
