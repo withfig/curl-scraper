@@ -6,13 +6,6 @@ with open('curl--help', 'r') as infile:
     global s
     s = infile.read()
 
-# Helper function to print and debug, delete after
-
-
-def printArray(arr):
-    for x in arr:
-        print(x)
-
 
 def parseInput(s):
     # Parse curl--help by splitting on - and --
@@ -22,11 +15,11 @@ def parseInput(s):
     noNewlineArr = [x.replace("\n", "") for x in fullArray]
 
     # Delete first value (not option)
-
     noNewlineArr = noNewlineArr[1:]
 
     # Combine delimiters with appropriate options + descriptions
     combinedArr = []
+
     i = 0
     while i < len(noNewlineArr) - 1:
         combinedArr.append(noNewlineArr[i].strip() + noNewlineArr[i+1])
@@ -91,7 +84,6 @@ def parseInput(s):
 
 
 def completionSpecsJSON(l):
-
     # Getting a list of [opt, description, arg] & turning it into JSON
     options = []
     for item in l:
@@ -117,7 +109,6 @@ def completionSpecsJSON(l):
         json.dump(options, outfile)
 
 
-# TODO: Manually use insertValue for anything that has an = and also look for all / and | to make them multiple args or something in the final spec
 completionSpecsJSON(parseInput(s))
 
 '''
